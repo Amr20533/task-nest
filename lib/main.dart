@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_nest/config/theme/app_theme.dart';
 import 'package:task_nest/presentation/views/home_page.dart';
 import 'package:task_nest/services/notifications/notification_service.dart';
@@ -6,7 +7,7 @@ import 'package:task_nest/services/notifications/notification_service.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init();
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
